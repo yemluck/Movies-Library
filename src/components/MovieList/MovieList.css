@@ -1,4 +1,20 @@
 .movies {
     display : flex;
     flex-wrap: wrap;
+    margin: auto;
+    padding: 10px;
+    /* border: 2px solid black; */
+}
+
+.movieBox {
+    background-color: bisque;
+    border: 2px solid black;
+    min-height: 200px;
+    /* min-width: 200px;
+    max-width: 250px; */
+    width: 250px;
+    padding-bottom: 10px;
+    margin: 5px;
+
+
 }
