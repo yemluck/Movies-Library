@@ -11,11 +11,16 @@ function MovieList() {
     const movies = useSelector(store => store.movies);
 
     useEffect(() => {
+        // dispatch to fetch all movies
         dispatch({ type: 'FETCH_MOVIES' });
+        // dispatch to fetch all genres
+        // from different database tables
+        dispatch({type: 'FETCH_GENRES' })
     }, []);
 
     const selectMovie = (movie) => {
         console.log('in selectMovie');
+        // move to detail page for individual movie
         history.push(`/details/${movie.id}`)
     }
 
@@ -30,19 +35,15 @@ function MovieList() {
                         key={movie.id} 
                         onClick={() => selectMovie(movie)}
                         >
-
-
                             <h3>{movie.title}</h3>
                             <img src={movie.poster} 
                             alt={movie.title}
-                           
                             />
                         </div>
                     );
                 })}
             </section>
         </main>
-
     );
 }
 
