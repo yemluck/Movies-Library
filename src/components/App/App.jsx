@@ -13,11 +13,11 @@ function App() {
       <h1>The Movies Saga!</h1>
 
       <Router>   
-        <nav>
+        {/* <nav>
         <Link to="/"> home </Link>  ||   
         <Link to="/details"> details </Link>  || 
         <Link to='/addMovie'> AddMovie </Link>
-        </nav>
+        </nav> */}
 
         {/* path to the home page */}
         <Route path="/" exact>

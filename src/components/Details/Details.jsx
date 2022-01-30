@@ -5,17 +5,16 @@ import { useHistory, useParams, Link } from 'react-router-dom';
 import './Details.css';
 
 function Details (){
-
-    const movie = useSelector(store => store.movies)
+    // import useParams
     const params = useParams();
-    console.log('this is the store for movies', movie);
     console.log('params', params);
+
+    // Bring local state for particular selected movie
+    const movie = useSelector(store => store.movies[params.id - 1]);
     
-    const selectedMovie = movie[params.id - 1]
-
-    //useEffect(())
-
-    if (selectedMovie === undefined || null){
+   
+    // conditional rendering
+    if (movie === undefined || null){
         return ( <h2> Loading</h2>)
     }
     
@@ -24,16 +23,17 @@ return (
     <>
     <div className="movieBox2">
         <div className="title">
-            <h3>{selectedMovie.title}</h3>
+            <h3>{movie.title}</h3>
         </div>
         <div className="poster">
-             <img src={selectedMovie.poster} alt="selected movie" />
+             <img src={movie.poster} alt="selected movie" />
         </div>
         <div className="description">
-             <p>{selectedMovie.description}</p>
+             <p>{movie.description}</p>
         </div>
-
     </div>
+    {/*  Link to return back to home page */}
+    <Link to="/"><button>Back to Home 🏠 </button></Link>
     
     </>
 
