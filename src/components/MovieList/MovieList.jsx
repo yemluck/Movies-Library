@@ -14,9 +14,9 @@ function MovieList() {
         dispatch({ type: 'FETCH_MOVIES' });
     }, []);
 
-    const selectMovie = () => {
+    const selectMovie = (movie) => {
         console.log('in selectMovie');
-        history.push("/details")
+        history.push(`/details/${movie.id}`)
     }
 
     return (
@@ -28,7 +28,7 @@ function MovieList() {
                         <div 
                         className="movieBox"
                         key={movie.id} 
-                        onClick={selectMovie}
+                        onClick={() => selectMovie(movie)}
                         >
 
 
