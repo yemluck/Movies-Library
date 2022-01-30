@@ -16,6 +16,32 @@ router.get('/', (req, res) => {
 
 });
 
+// router GET for the detail page
+router.get('/:id', (req, res) => {
+  const queryText =  `SELECT * FROM movies
+                  WHERE id = $1        
+  `;
+
+  const queryParams = [
+    req.params.id   //$1
+  ]; 
+
+  pool.query( queryText, queryParams)
+        .then((result) => {
+          console.log('Got movies back from the database', result);
+          res.send(result.rows[0]);
+        })
+        .catch((error) => {
+          console.log(`Error making database query ${queryParams}`, error);
+          res.sendStatus(500); // Good server always responds
+        })
+})
+
+
+// end router GET
+
+// router POST
+
 router.post('/', (req, res) => {
   console.log(req.body);
   // RETURNING "id" will give us back the id of the created movie

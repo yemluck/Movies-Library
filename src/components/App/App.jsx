@@ -12,10 +12,12 @@ function App() {
     <div className="App">
       <h1>The Movies Saga!</h1>
 
-      <Router>      
+      <Router>   
+        <nav>
         <Link to="/"> home </Link>  ||   
         <Link to="/details"> details </Link>  || 
         <Link to='/addMovie'> AddMovie </Link>
+        </nav>
 
         {/* path to the home page */}
         <Route path="/" exact>
@@ -23,7 +25,7 @@ function App() {
         </Route>
         
         {/* Details page */}
-        <Route path="/details" exact>
+        <Route path="/details/:id" exact>
           <Details />
         </Route>
 
