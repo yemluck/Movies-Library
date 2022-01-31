@@ -33,7 +33,7 @@ return (
         <div className="movieBox2">
             <h3>{movie.title}</h3>
             <img src={movie.poster} alt="selected movie" />
-            <p>{genre.genre_name}</p>
+            {genre.genre_name.map(genreName => <p>{genreName}</p>)}
         </div>
         <div className="description">
              <p>{movie.description}</p>
